@@ -97,11 +97,25 @@ systemctl restart sshd
 ```
 test using SSH, and you’ll get the following error:
 ```sh
-ssh mac@localhost
+root@mac:/home/mac/Desktop/test# ssh mac@10.0.0.25
+mac@10.0.0.25's password: 
+This service allows sftp connections only.
+Connection to 10.0.0.25 closed.
 ```
 Try using SFTP as follows:
 ```sh
-sftp mac@localhost
+sftp mac@10.0.0.25
+```
+```
+root@mac:/home/mac/Desktop/test# sftp mac@10.0.0.25
+mac@10.0.0.25's password: 
+Connected to 10.0.0.25.
+sftp> ls
+a  
+sftp> mkdir uploads
+sftp> ls -l
+drwxr-xr-x    2 mac      mac             6 Mar  8 02:06 a
+drwxr-xr-x    2 mac      mac             6 Mar  8 07:49 uploads
 ```
 
 # Create chrootjail with script
@@ -113,7 +127,7 @@ sftp mac@localhost
 ```sh
  ./chroot.sh /bin/{ls,cat,echo,rm,bash} /usr/bin/vi /etc/hosts
  ```
- # Create group chrootjail
+ ## Create group chrootjail
  ```sh
  sudo groupadd chrootjail
  ```
@@ -128,7 +142,7 @@ systemctl restart sshd
 # add user test to group chrootjail
 sudo adduser test chrootjail
 ```
-# test chrootjail
+## test chrootjail
 ```
 ssh test@localhost
 ```
