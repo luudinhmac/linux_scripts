@@ -120,10 +120,11 @@ drwxr-xr-x    2 mac      mac             6 Mar  8 07:49 uploads
 
 # Create chrootjail with script
  ## execute command to create chrootjail
-[chrootjail.sh](https://github.com/luudinhmac/linux_scripts/blob/master/chrootjail/chrootjail.sh)
+ Edit file [chrootjail.sh](https://github.com/luudinhmac/linux_scripts/blob/master/chrootjail/chrootjail.sh) and change path of chrootjail. After executing this command
+```sh
 ./chroot.sh <path-to-command1> <path-to-command2> ... <path-to-command-n>
-
- example:
+```
+Example:
 ```sh
  ./chroot.sh /bin/{ls,cat,echo,rm,bash} /usr/bin/vi /etc/hosts
  ```
