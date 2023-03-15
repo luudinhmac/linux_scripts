@@ -147,3 +147,8 @@ sudo adduser test chrootjail
 ```
 ssh test@localhost
 ```
+
+## Make shell show name
+```
+echo "PS1='JAIL $ ' " | sudo tee /bashjail/etc/bash.bashrc
+```
